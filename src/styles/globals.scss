@@ -1,0 +1,42 @@
+@use "./reset_v2.5" as *;
+@use "./variable" as *;
+body {
+    @include SunSerif;
+    font-feature-settings: "palt";
+    font-size: clamp(1.2rem, calc($base-vw * 1vw) + calc($slice * 1px), 1.6rem);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-between;
+    width: 100%;
+    @include tbw {
+        overflow-x: clip;
+    }
+    @include tb {
+        font-size: 1.4vw;
+    }
+    @include sp {
+        font-size: 3.6vw;
+    }
+}
+main {
+    font-size: inherit;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../assets/images/main-bg.webp");
+    background-repeat: repeat;
+}
+section,
+article,
+header,
+footer {
+    width: 100%;
+    position: relative;
+    font-size: inherit;
+    z-index: 1;
+}
