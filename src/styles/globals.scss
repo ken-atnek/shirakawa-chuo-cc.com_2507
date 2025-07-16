@@ -12,6 +12,7 @@ body {
     min-height: 100vh;
     justify-content: space-between;
     width: 100%;
+    color: $base-black;
     @include tbw {
         overflow-x: clip;
     }
@@ -28,8 +29,6 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url("../assets/images/main-bg.webp");
-    background-repeat: repeat;
 }
 section,
 article,

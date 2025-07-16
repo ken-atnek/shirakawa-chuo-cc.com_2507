@@ -4,97 +4,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    article {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2em 0;
-        padding: 5em 0 3em;
-        @include sp {
-            gap: 4vw 0;
-            padding: 6vw 0;
-        }
-        .itemLogo {
-            max-width: 24rem;
-            @include sp {
-                max-width: 30vw;
-            }
-        }
-        address {
-            font-size: FZ(14);
-            gap: 0 1em;
-            display: flex;
-            letter-spacing: 0.08em;
-            @include sp {
-                flex-direction: row;
-            }
-        }
-        .itemTel {
-            position: relative;
-            font-size: FZ(14);
-            letter-spacing: 0.08em;
-            padding-left: 1.2em;
-            &::before {
-                content: "";
-                position: absolute;
-                top: 53%;
-                translate: 0 -50%;
-                left: 0;
-                width: 0.9em;
-                @include svg-icon-phone("555555");
-            }
-        }
-        .boxSns {
-            position: relative;
-            font-size: inherit;
-            display: grid;
-            grid-template-columns: repeat(2, 2.4em);
-            gap: 0 1.4em;
-            margin-top: 3em;
-            @include sp {
-                margin-top: 4vw;
-            }
-            li {
-                position: relative;
-                width: 100%;
-                .itemSns {
-                    img {
-                        aspect-ratio: 1;
-                        object-fit: cover;
-                    }
-                }
-            }
-        }
-        .boxContents {
-            font-size: inherit;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            @include sp {
-                display: contents;
-            }
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 3em 2em 1em;
+    gap: 1em 0;
+    .itemTel {
+        position: relative;
+        font-size: FZ(16);
+        letter-spacing: 0.08em;
+        padding-left: 1.2em;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 53%;
+            translate: 0 -50%;
+            left: 0;
+            width: 0.9em;
+            @include svg-icon-phone("fff");
         }
     }
-    nav {
-        position: relative;
-        width: 100%;
-        font-size: inherit;
+    .name {
+        font-size: FZ(16);
         display: flex;
-        justify-content: center;
-        gap: 0 2em;
-        background-color: #d9d9d9;
+        align-items: center;
+        gap: 0 1em;
+    }
+    .boxSns {
+        position: relative;
+        font-size: inherit;
+        display: grid;
+        grid-template-columns: repeat(2, 2.8em);
+        gap: 0 1.4em;
+        margin-top: 1em;
         @include sp {
-            flex-direction: column;
-            align-items: center;
-            padding-block: 4vw;
+            margin-top: 4vw;
         }
-        .itemLink {
-            font-size: FZ(14);
-            letter-spacing: 0.08em;
-            padding-block: 2em;
-            @include sp {
-                font-size: FZ(16);
-                padding-block: 2vw;
+        li {
+            position: relative;
+            width: 100%;
+            .itemSns {
+                img {
+                    aspect-ratio: 1;
+                    object-fit: cover;
+                }
             }
         }
     }
@@ -103,8 +55,7 @@
         padding: 0.5em 0;
         display: flex;
         justify-content: center;
-        font-size: FZ(12);
-        letter-spacing: 0.12em;
-        color: #555e;
+        font-size: FZ(14);
+        letter-spacing: 0.04em;
     }
 }
