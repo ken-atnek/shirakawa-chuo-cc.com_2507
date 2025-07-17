@@ -24,47 +24,49 @@ const BlockCourseGuide = () => {
         <br />
         それぞれ申込みができます。
       </p>
-      <div className={styles.itemH3}>
-        <h3>
-          <>春期募集</>
-        </h3>
-      </div>
-      <ul className={styles.listImage}>
-        <li>
-          <ExternalLink
-            href="/data/pdf/R7syogaigakusyu_lesson.pdf"
-            aria-label="生涯学習自主講座"
-          >
+      <div className={styles.wrapImage}>
+        <div className={styles.itemH3}>
+          <h3>
+            <>春期募集</>
+          </h3>
+        </div>
+        <ul className={styles.listImage}>
+          <li>
+            <ExternalLink
+              href="/data/pdf/R7syogaigakusyu_lesson.pdf"
+              aria-label="生涯学習自主講座"
+            >
+              <Image
+                src={ListImage01}
+                alt="生涯学習自主講座"
+                width={260}
+                height={270}
+              />
+            </ExternalLink>
+          </li>
+          <li>
             <Image
-              src={ListImage01}
+              src={ListImage02}
               alt="生涯学習自主講座"
               width={260}
               height={270}
             />
-          </ExternalLink>
-        </li>
-        <li>
-          <Image
-            src={ListImage02}
-            alt="生涯学習自主講座"
-            width={260}
-            height={270}
-          />
-        </li>
-        <li>
-          <ExternalLink
-            href="/data/pdf/spring202502.pdf"
-            aria-label="カルチャー講座"
-          >
-            <Image
-              src={ListImage03}
-              alt="カルチャー講座"
-              width={260}
-              height={270}
-            />
-          </ExternalLink>
-        </li>
-      </ul>
+          </li>
+          <li>
+            <ExternalLink
+              href="/data/pdf/spring202502.pdf"
+              aria-label="カルチャー講座"
+            >
+              <Image
+                src={ListImage03}
+                alt="カルチャー講座"
+                width={260}
+                height={270}
+              />
+            </ExternalLink>
+          </li>
+        </ul>
+      </div>
       <nav className={styles.linkForm}>
         <ExternalLink
           href="https://shirakawapark36221.wixsite.com/my-site-5"

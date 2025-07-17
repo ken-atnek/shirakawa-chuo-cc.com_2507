@@ -3,7 +3,7 @@
 html {
     scroll-padding-top: 3rem;
     @include sp {
-        scroll-padding-top: unset;
+        scroll-padding-top: 12vw;
     }
 }
 body {
