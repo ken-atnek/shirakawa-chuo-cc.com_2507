@@ -18,13 +18,14 @@
         justify-content: space-between;
         align-items: center;
         gap: 0 2em;
+        max-width: $articleMaxWidth;
         @include sp {
             padding: 2vw 0;
             justify-content: flex-start;
         }
         h1 {
             position: relative;
-            max-width: 26rem;
+            max-width: 25rem;
             width: 100%;
             @include sp {
                 width: 40vw;
@@ -37,10 +38,15 @@
                 }
             }
         }
-        .wrapMobileMenu {
-            font-size: inherit;
+        nav {
             position: relative;
-            display: contents;
+            font-size: inherit;
+            display: flex;
+            justify-content: flex-end;
+            margin-left: auto;
+            align-self: stretch;
+            align-items: center;
+            gap: 0 2em;
             @include sp {
                 position: fixed;
                 top: 0;
@@ -63,129 +69,10 @@
                     opacity: 1;
                 }
             }
-            nav {
-                position: relative;
-                font-size: inherit;
-                display: flex;
-                justify-content: flex-end;
-                margin-left: auto;
-                align-self: stretch;
-                @include sp {
-                    width: 100%;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: unset;
-                    align-self: center;
-                }
-                .linkContainer {
-                    padding-block: 2em;
-                    position: relative;
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                    font-size: inherit;
-                    @include sp {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 6vw 0;
-                        justify-content: center;
-                    }
-                    .itemLink {
-                        position: relative;
-                        font-size: FZ(16);
-                        text-transform: uppercase;
-                        font-weight: 400;
-                        letter-spacing: 0.07em;
-                        text-decoration: none;
-                        color: #000;
-                        padding-inline: 1em;
-                        cursor: pointer;
-                    }
-                    .hoverBar {
-                        position: absolute;
-                        bottom: 0;
-                        transition:
-                            left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-                            width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-                            opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-                        pointer-events: none;
-                        z-index: 10;
-                        opacity: 0;
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            bottom: 0;
-                            left: 50%;
-                            translate: -50%;
-                            width: 2em;
-                            aspect-ratio: 3;
-                            background-color: $base-green;
-                            clip-path: polygon(0 100%, 50% 0, 100% 100%);
-                        }
-                    }
-                }
-            }
-            .boxSns {
-                position: relative;
-                font-size: inherit;
-                display: grid;
-                grid-template-columns: repeat(2, 2em);
-                gap: 0 2em;
-                @include sp {
-                    justify-content: center;
-                    grid-template-columns: repeat(3, 10vw);
-                }
-                li {
-                    position: relative;
-                    width: 100%;
-                    .itemSns {
-                        img {
-                            aspect-ratio: 1;
-                            object-fit: cover;
-                        }
-                    }
-                    &.wrapTel {
-                        display: none;
-                        @include sp {
-                            display: block;
-                            &::before {
-                                content: "";
-                                position: absolute;
-                                inset: 0;
-                                margin: auto;
-                                width: 80%;
-                                @include svg-icon-phone("555555");
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    &.isActive {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0 2px 10px rgb(0 0 0 / 10%); // Optional effect
-        z-index: 100;
-        align-items: center;
-        opacity: 1;
-        pointer-events: auto;
-        article {
-            padding-top: 1.5em;
-            padding-bottom: 1.5em;
-            nav {
-                .linkContainer {
-                    .itemLink {
-                        color: $base-black;
-                    }
-                    .hoverBar {
-                        background-color: $base-black;
-                    }
-                }
+            .itemLink {
+                font-size: FZ(16);
+                padding-block: 1.6em;
+                font-weight: 500;
             }
         }
     }

@@ -1,8 +1,8 @@
 /* =======================================
  * 熊本市中央公民館 Layout
  * URL:src/app/layout.tsx
- * Created: 2025-07-11
- * Last updated: 2025-07-11
+ * Created: 2025-07-14
+ * Last updated: 2025-07-14
  * ======================================= */
 
 import type { Metadata } from 'next';
@@ -47,15 +47,15 @@ export const metadata: Metadata = {
   robots: isRealProduction ? 'index, follow' : 'noindex, nofollow',
   icons: {
     icon: [
-      // { url: 'favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      // { url: 'favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: 'favicon/favicon.ico', type: 'image/x-icon' },
+      // { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      // { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon/favicon.ico', type: 'image/x-icon' },
     ],
     // apple: [{ url: 'favicon/apple-touch-icon.png', sizes: '180x180' }],
     // other: [
     //   {
     //     rel: 'icon',
-    //     url: 'favicon/android-chrome-192x192.png',
+    //     url: '/favicon/android-chrome-192x192.png',
     //     sizes: '192x192',
     //     type: 'image/png',
     //   },

@@ -24,7 +24,7 @@ $base-vw: calc($tilt * 100);
     }
 }
 
-$articleMaxWidth: 126rem;
+$articleMaxWidth: 117rem;
 
 /* =================================
  * フォント設定
@@ -49,15 +49,11 @@ $articleMaxWidth: 126rem;
 /* =================================
  * カラー変数
  * ------------------------------ */
-$base-green: #0b9219;
-$dark-green: #006d50;
-$base-blue: #348fcf;
+
 $base-white: #fff;
-$base-black: #242424;
-$dark-gray: #555;
-$dark-black: #0d0d0d;
-$base-red: #df0000;
-$dark-blue: #0842af;
+$base-black: #181818;
+$base-orange: #ffad00;
+$dark-blue: #00089e;
 
 /* =================================
  * レスポンシブ設定
