@@ -62,19 +62,19 @@ const Header = () => {
             !isOpen ? styles.closing : ''
           }`}
         >
-          <Link href="#" className={styles.itemLink}>
+          <Link href="#ContainerNews" className={styles.itemLink}>
             お知らせ
           </Link>
-          <Link href="#" className={styles.itemLink}>
+          <Link href="#ContainerFacilityGuide" className={styles.itemLink}>
             施設のご案内
           </Link>
-          <Link href="#" className={styles.itemLink}>
+          <Link href="#ContainerCourseGuide" className={styles.itemLink}>
             講座のご案内
           </Link>
-          <Link href="#" className={styles.itemLink}>
+          <Link href="#ContainerFacilityDetails" className={styles.itemLink}>
             利用申込・利用料金
           </Link>
-          <Link href="#" className={styles.itemLink}>
+          <Link href="#ContainerAccess" className={styles.itemLink}>
             アクセス
           </Link>
           <ExternalLink

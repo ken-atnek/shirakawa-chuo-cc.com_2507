@@ -7,7 +7,6 @@
 /* stylelint-disable keyframes-name-pattern */
 /* stylelint-disable custom-property-pattern */
 // このファイル全体のルールを無効にする
-
 .itemH2 {
     font-size: FZ(30);
     color: $base-orange;
@@ -20,6 +19,7 @@
     letter-spacing: 0.04em;
     margin-top: 1em;
 }
+
 /* =================================
  * HERO
  * ------------------------------ */
@@ -45,7 +45,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5em 2em 5em;
+    padding: 5em 2em;
     article {
         display: flex;
         flex-direction: column;
@@ -58,8 +58,45 @@
             font-weight: 500;
             letter-spacing: 0.02em;
         }
+        .newsList {
+            position: relative;
+            width: 100%;
+            max-width: 80rem;
+            font-size: inherit;
+            margin-top: 5em;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3em 0;
+            li {
+                position: relative;
+                display: grid;
+                grid-column: span 2;
+                grid-template-columns: subgrid;
+                font-size: inherit;
+                gap: 0 5em;
+                .date {
+                    font-size: FZ(16);
+                }
+                .wrapDetails {
+                    font-size: inherit;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5em 0;
+                    .title,
+                    .body,
+                    .itemPdf {
+                        font-size: FZ(16);
+                        letter-spacing: 0.04em;
+                    }
+                    .itemPdf {
+                        color: $dark-blue;
+                    }
+                }
+            }
+        }
     }
 }
+
 /* =================================
  * 施設のご案内
  * ------------------------------ */
@@ -68,7 +105,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5em 2em 5em;
+    padding: 5em 2em;
     .boxHead {
         background-color: $base-orange;
         color: $base-white;
@@ -90,7 +127,7 @@
             font-size: inherit;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 3em 3em;
+            gap: 3em;
             margin-top: 5em;
             li {
                 position: relative;
@@ -103,6 +140,7 @@
         }
     }
 }
+
 /* =================================
  * 施設ご利用について
  * ------------------------------ */
@@ -111,7 +149,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5em 2em 5em;
+    padding: 5em 2em;
     article {
         display: flex;
         flex-direction: column;
@@ -126,7 +164,7 @@
             background-color: #f9f9f9;
             display: flex;
             flex-direction: column;
-            padding: 3em 3em;
+            padding: 3em;
             h3 {
                 font-size: FZ(20);
                 font-weight: 300;
@@ -203,7 +241,6 @@
             margin-top: 2em;
             width: 100%;
             max-width: 111rem;
-
             h3 {
                 font-size: FZ(20);
                 font-weight: 700;
@@ -267,6 +304,7 @@
         }
     }
 }
+
 /* =================================
  * 施設ご利用について
  * ------------------------------ */
@@ -275,7 +313,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5em 2em 5em;
+    padding: 5em 2em;
     article {
         display: flex;
         flex-direction: column;
@@ -299,7 +337,6 @@
                 h3 {
                     border-right: 1px solid #646464;
                     border-bottom: 1px solid #646464;
-
                     display: flex;
                     justify-content: center;
                     font-size: FZ(16);
@@ -345,6 +382,7 @@
         }
     }
 }
+
 /* =================================
  * 講座のご案内
  * ------------------------------ */
@@ -353,7 +391,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5em 2em 5em;
+    padding: 5em 2em;
     article {
         display: flex;
         flex-direction: column;
@@ -406,12 +444,13 @@
                 border-radius: 100vmax;
                 transition: 0.3s ease-out;
                 @include hover {
-                    background-color: #ff0000;
+                    background-color: #f00;
                 }
             }
         }
     }
 }
+
 /* =================================
  * アクセス
  * ------------------------------ */
@@ -420,7 +459,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5em 2em 5em;
+    padding: 5em 2em;
     article {
         display: flex;
         flex-direction: column;
@@ -473,6 +512,7 @@
         }
     }
 }
+
 /* =================================
  * 白川公園茶室について
  * ------------------------------ */
@@ -481,7 +521,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5em 2em 5em;
+    padding: 5em 2em;
     article {
         display: flex;
         flex-direction: column;
@@ -532,6 +572,7 @@
         }
     }
 }
+
 /* =================================
  * 喫茶・売店 しらかわのほとり
  * ------------------------------ */

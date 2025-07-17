@@ -15,6 +15,8 @@ import BlockFacilityHours from '@/components/BlockFacilityHours';
 import BlockCourseGuide from '@/components/BlockCourseGuide';
 import BlockAccess from '@/components/BlockAccess';
 import BlockStore from '@/components/BlockStore';
+import { newsData } from '@/data/newsData';
+import BlockNewsList from '@/components/BlockNewsList';
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -34,7 +36,7 @@ export default function Home() {
           height={100}
         />
       </section>
-      <section className={styles.containerNews}>
+      <section className={styles.containerNews} id="ContainerNews">
         <article>
           <h2 className={styles.itemH2}>お知らせ</h2>
           <p className={styles.sidebarH2}>
@@ -47,9 +49,13 @@ export default function Home() {
           >
             （白川）カルチャー講座　春期講座　受講生募集中！
           </ExternalLink>
+          <BlockNewsList items={newsData} />
         </article>
       </section>
-      <section className={styles.containerFacilityGuide}>
+      <section
+        className={styles.containerFacilityGuide}
+        id="ContainerFacilityGuide"
+      >
         <div className={styles.boxHead}>施設ご利用に関するトピックス</div>
         <article>
           <h2 className={styles.itemH2}>施設のご案内</h2>
@@ -59,33 +65,42 @@ export default function Home() {
           <BlockFacilityGuide />
         </article>
       </section>
-      <section className={styles.containerFacilityDetails}>
+      <section
+        className={styles.containerFacilityDetails}
+        id="ContainerFacilityDetails"
+      >
         <article>
           <h2 className={styles.itemH2}>施設ご利用について</h2>
           <p className={styles.sidebarH2}>利用お申し込み、料金、定員について</p>
           <BlockFacilityDetails />
         </article>
       </section>
-      <section className={styles.containerFacilityHours}>
+      <section
+        className={styles.containerFacilityHours}
+        id="ContainerFacilityHours"
+      >
         <article>
           <h2 className={styles.itemH2}>施設利用可能時間</h2>
           <p className={styles.sidebarH2}>利用時間</p>
           <BlockFacilityHours />
         </article>
       </section>
-      <section className={styles.containerCourseGuide}>
+      <section
+        className={styles.containerCourseGuide}
+        id="ContainerCourseGuide"
+      >
         <article>
           <h2 className={styles.itemH2}>講座のご案内</h2>
           <BlockCourseGuide />
         </article>
       </section>
-      <section className={styles.containerAccess}>
+      <section className={styles.containerAccess} id="ContainerAccess">
         <article>
           <h2 className={styles.itemH2}>アクセス</h2>
           <BlockAccess />
         </article>
       </section>
-      <section className={styles.containerTearoom}>
+      <section className={styles.containerTearoom} id="ContainerTearoom">
         <article>
           <h2 className={styles.itemH2}>白川公園茶室について</h2>
           <dl>
@@ -145,7 +160,7 @@ export default function Home() {
           </dl>
         </article>
       </section>
-      <section className={styles.containerStore}>
+      <section className={styles.containerStore} id="ContainerStore">
         <article>
           <h2 className={styles.itemH2}>喫茶・売店 しらかわのほとり</h2>
           <BlockStore />

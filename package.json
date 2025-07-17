@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && rm -f out/404.html && rm -rf out/404",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:style": "stylelint \"src/**/*.scss\" --fix"
   },
   "dependencies": {
     "next": "15.3.5",

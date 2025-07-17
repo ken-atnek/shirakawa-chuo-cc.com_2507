@@ -1,5 +1,11 @@
 @use "./reset_v2.5" as *;
 @use "./variable" as *;
+html {
+    scroll-padding-top: 3rem;
+    @include sp {
+        scroll-padding-top: unset;
+    }
+}
 body {
     @include SunSerif;
     font-feature-settings: "palt";
