@@ -138,19 +138,19 @@ export default function Home() {
               </p>
               <nav>
                 <ExternalLink
-                  href="../../public/data/pdf/白川公園茶室予約申込書202209.pdf"
+                  href="/data/pdf/白川公園茶室予約申込書202209.pdf"
                   aria-label="予約申込書PDF"
                 >
                   予約申込書PDF
                 </ExternalLink>
                 <ExternalLink
-                  href="../../public/data/pdf/shirakawahenkou.pdf"
+                  href="/data/pdf/shirakawahenkou.pdf"
                   aria-label="予約変更依頼書PDF"
                 >
                   予約変更依頼書PDF
                 </ExternalLink>
                 <ExternalLink
-                  href="../../public/data/pdf/2024優先予約申込書.pdf"
+                  href="/data/pdf/2024優先予約申込書.pdf"
                   aria-label="優先予約申込書（100人以上の催事）PDF"
                 >
                   優先予約申込書（100人以上の催事）PDF
