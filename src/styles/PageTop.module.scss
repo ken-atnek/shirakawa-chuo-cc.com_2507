@@ -322,6 +322,17 @@
                 p {
                     font-size: FZ(16);
                     letter-spacing: 0.04em;
+                    &.pcOnly {
+                        @include sp {
+                            display: none;
+                        }
+                    }
+                    &.mobileOnly {
+                        display: none;
+                        @include sp {
+                            display: inline;
+                        }
+                    }
                 }
                 a {
                     font-size: FZ(16);
@@ -587,7 +598,10 @@
                 }
                 iframe {
                     width: 100%;
-                    aspect-ratio: 1/1.5;
+                    aspect-ratio: 1.4;
+                    @include sp {
+                        aspect-ratio: 1/1.5;
+                    }
                 }
             }
             .wrapDetails {

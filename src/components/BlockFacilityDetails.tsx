@@ -68,8 +68,11 @@ const BlockFacilityDetails = () => {
           </li>
         </ul>
         <div className={styles.wrapQr}>
-          <p>
+          <p className={styles.pcOnly}>
             ※下に掲載したURLやQRコードから公民館の案内がご覧になれます。不明な点は公民館にお尋ねください。
+          </p>
+          <p className={styles.mobileOnly}>
+            ※下に掲載したURLから公民館の案内がご覧になれます。不明な点は公民館にお尋ねください。
           </p>
           <ExternalLink
             href="https://kouminkan-yoyaku-kmt.jp/"
