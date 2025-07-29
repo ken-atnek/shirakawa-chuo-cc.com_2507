@@ -15,8 +15,12 @@ import BlockFacilityHours from '@/components/BlockFacilityHours';
 import BlockCourseGuide from '@/components/BlockCourseGuide';
 import BlockAccess from '@/components/BlockAccess';
 import BlockStore from '@/components/BlockStore';
-import { newsData } from '@/data/newsData';
-import BlockNewsList from '@/components/BlockNewsList';
+
+
+// import { newsData } from '@/data/newsData';
+// import BlockNewsList from '@/components/BlockNewsList';
+
+import BlockNewsList from '@/components/BlockNewsClient';
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -49,7 +53,7 @@ export default function Home() {
           >
             （白川）カルチャー講座　春期講座　受講生募集中！
           </ExternalLink>
-          <BlockNewsList items={newsData} />
+          <BlockNewsList />
         </article>
       </section>
       <section
