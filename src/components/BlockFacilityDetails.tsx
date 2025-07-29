@@ -20,7 +20,7 @@ const BlockFacilityDetails = () => {
             <p>4カ月先までの予約が可能となりました。</p>
           </li>
           <li>
-            <h4>使用申請時期の変更</h4>
+            <h4>時間単位での予約も可能に</h4>
             <p>
               午前、午後、夜間の利用区分に加え、予約の入っていない空き室については
               1 時間単位での予約も可能となりました。
@@ -68,8 +68,11 @@ const BlockFacilityDetails = () => {
           </li>
         </ul>
         <div className={styles.wrapQr}>
-          <p>
+          <p className={styles.pcOnly}>
             ※下に掲載したURLやQRコードから公民館の案内がご覧になれます。不明な点は公民館にお尋ねください。
+          </p>
+          <p className={styles.mobileOnly}>
+            ※下に掲載したURLから公民館の案内がご覧になれます。不明な点は公民館にお尋ねください。
           </p>
           <ExternalLink
             href="https://kouminkan-yoyaku-kmt.jp/"

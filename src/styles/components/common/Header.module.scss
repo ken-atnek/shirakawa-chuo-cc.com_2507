@@ -11,7 +11,7 @@
     transition: 0.5s ease-out;
     background-color: #fff;
     @include sp {
-        padding-inline: 2vw;
+        padding-inline: 0;
     }
     article {
         display: flex;
@@ -20,15 +20,16 @@
         gap: 0 2em;
         max-width: $articleMaxWidth;
         @include sp {
-            padding: 2vw 0;
-            justify-content: flex-start;
+            padding: 3vw 0;
+            justify-content: center;
         }
         h1 {
             position: relative;
             max-width: 25rem;
             width: 100%;
             @include sp {
-                width: 40vw;
+                width: 60vw;
+                padding-right: 2vw;
                 z-index: 201;
             }
             .linkTop {
@@ -62,7 +63,7 @@
                 translate: 100vw;
                 transition: 0.3s ease-out;
                 opacity: 0;
-                gap: 6vw 0;
+                gap: 4vw 0;
                 justify-content: center;
                 &.is-open {
                     translate: 0;
@@ -73,14 +74,17 @@
                 font-size: FZ(16);
                 padding-block: 1.6em;
                 font-weight: 500;
+                @include sp {
+                    padding-block: 3vw;
+                }
             }
         }
     }
 }
 .hamburgerButton {
     position: fixed;
-    top: 2vw;
-    right: 4vw;
+    top: 1vw;
+    right: 2vw;
     width: 11vw;
     aspect-ratio: 1;
 
@@ -89,7 +93,8 @@
     display: none;
     background-color: $base-white;
     border-radius: 2vw;
-    border: 1px solid #000;
+
+    // border: 1px solid #000;
     @include sp {
         display: block;
     }
@@ -98,17 +103,17 @@
         top: 50%;
         left: 50%;
         width: 60%;
-        height: 2px;
-        background-color: $base-black;
+        height: 3px;
+        background-color: #505050;
         transition: 0.3s ease-out;
         &:nth-of-type(1) {
-            translate: -50% calc(-50% - 7px);
+            translate: -50% calc(-50% - 8px);
         }
         &:nth-of-type(2) {
             translate: -50% -50%;
         }
         &:nth-of-type(3) {
-            translate: -50% calc(-50% + 7px);
+            translate: -50% calc(-50% + 8px);
         }
     }
     &.is-open {

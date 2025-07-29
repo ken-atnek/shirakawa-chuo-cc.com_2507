@@ -22,7 +22,7 @@ const BlockFacilityHours = () => {
       <li className={styles.place02}>
         <h4>図書館</h4>
         <div>火曜〜土曜</div>
-        <div>9:30〜22:00</div>
+        <div>9:30〜20:00</div>
         <div>日曜・祝日</div>
         <div>9:30〜18:00</div>
       </li>
