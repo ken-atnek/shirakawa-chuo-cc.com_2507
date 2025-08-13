@@ -94,7 +94,7 @@ const BlockFacilityDetails = () => {
         <div className={styles.wrapPdf}>
           <h4>公民館だより</h4>
           <ExternalLink
-            href="/data/pdf/R7.7月号公民館だより.pdf"
+            href="/data/pdf/r708.pdf"
             aria-label="公民館だよりをご覧いただけます（PDF）"
           >
             公民館だよりをご覧いただけます（PDF）

@@ -27,7 +27,7 @@ const BlockCourseGuide = () => {
       <div className={styles.wrapImage}>
         <div className={styles.itemH3}>
           <h3>
-            <>春期募集</>
+            <>夏期募集</>
           </h3>
         </div>
         <ul className={styles.listImage}>
@@ -45,16 +45,21 @@ const BlockCourseGuide = () => {
             </ExternalLink>
           </li>
           <li>
-            <Image
-              src={ListImage02}
-              alt="生涯学習自主講座"
-              width={260}
-              height={270}
-            />
+            <ExternalLink
+              href="https://shirakawapark36221.wixsite.com/my-site-5"
+              aria-label="主催講座のご案内"
+            >
+              <Image
+                src={ListImage02}
+                alt="生涯学習自主講座"
+                width={260}
+                height={270}
+              />
+            </ExternalLink>
           </li>
           <li>
             <ExternalLink
-              href="/data/pdf/spring202502.pdf"
+              href="/data/pdf/obj20250801104328745161.pdf"
               aria-label="カルチャー講座"
             >
               <Image
