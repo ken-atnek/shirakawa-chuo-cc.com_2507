@@ -22,7 +22,7 @@ const isRealProduction = process.env.NEXT_PUBLIC_IS_REAL_PROD === 'true';
 const metadataBase = isRealProduction
   ? new URL(
       process.env.NEXT_PUBLIC_METADATA_BASE ||
-        'https://www.shirakawa-chuo-cc.com/'
+        'https://shirakawa-chuo-cc.com/'
     )
   : undefined;
 
