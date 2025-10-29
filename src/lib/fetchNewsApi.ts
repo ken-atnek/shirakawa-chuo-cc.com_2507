@@ -13,7 +13,7 @@ type ApiNewsItem = {
 export async function fetchNews(
   limit = 3,
   offset = 0,
-  apiUrl = `https://demo-shirakawa-chuo-cc.tuna-pic.co.jp/api/news/?limit=${limit}&offset=${offset}`
+  apiUrl = `https://shirakawa-chuo-cc.com/api/news/?limit=${limit}&offset=${offset}`
 ): Promise<{ news: NewsItem[]; total: number }> {
   try {
     const res = await fetch(apiUrl);
@@ -22,7 +22,8 @@ export async function fetchNews(
       return { news: [], total: 0 };
     }
     const rawData: ApiNewsItem[] = await res.json();
-    const total = rawData.length > 0 && rawData[0].k_total ? Number(rawData[0].k_total) : 0;
+    const total =
+      rawData.length > 0 && rawData[0].k_total ? Number(rawData[0].k_total) : 0;
     const news: NewsItem[] = rawData.map((item) => ({
       id: String(item.k_id),
       title: item.k_title,

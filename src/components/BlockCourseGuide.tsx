@@ -27,7 +27,7 @@ const BlockCourseGuide = () => {
       <div className={styles.wrapImage}>
         <div className={styles.itemH3}>
           <h3>
-            <>夏期募集</>
+            <>秋期募集</>
           </h3>
         </div>
         <ul className={styles.listImage}>
@@ -59,7 +59,7 @@ const BlockCourseGuide = () => {
           </li>
           <li>
             <ExternalLink
-              href="/data/pdf/obj20250801104328745161.pdf"
+              href="/data/pdf/shirakawacul-2025au.pdf"
               aria-label="カルチャー講座"
             >
               <Image
