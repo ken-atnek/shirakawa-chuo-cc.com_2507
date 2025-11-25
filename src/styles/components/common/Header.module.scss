@@ -78,6 +78,25 @@
                     padding-block: 3vw;
                 }
             }
+            .mobileMenu {
+                font-size: inherit;
+                flex-direction: column;
+                gap: 2vw 0;
+                margin-top: 8vw;
+                display: none;
+                @include sp {
+                    display: flex;
+                }
+                a {
+                    color: $base-white;
+                    background-color: #980000;
+                    font-size: FZ(16);
+                    padding: 0.8em 1em;
+                    letter-spacing: 0.08em;
+                    border-radius: 100vmax;
+                    text-align: center;
+                }
+            }
         }
     }
 }

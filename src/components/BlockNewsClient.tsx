@@ -15,7 +15,7 @@ export default function TopNewsClient() {
   const [items, setItems] = useState<NewsItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
-    fetchNews(3)
+    fetchNews(5)
       .then(({ news }) => {
         setItems(news);
       })

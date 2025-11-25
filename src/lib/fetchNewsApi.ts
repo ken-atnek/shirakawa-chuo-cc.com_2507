@@ -22,7 +22,8 @@ export async function fetchNews(
       return { news: [], total: 0 };
     }
     const rawData: ApiNewsItem[] = await res.json();
-    const total = rawData.length > 0 && rawData[0].k_total ? Number(rawData[0].k_total) : 0;
+    const total =
+      rawData.length > 0 && rawData[0].k_total ? Number(rawData[0].k_total) : 0;
     const news: NewsItem[] = rawData.map((item) => ({
       id: String(item.k_id),
       title: item.k_title,

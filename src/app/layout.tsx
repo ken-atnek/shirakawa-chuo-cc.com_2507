@@ -5,11 +5,18 @@
  * Last updated: 2025-07-14
  * ======================================= */
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '@/styles/globals.scss';
 import { Noto_Sans_JP } from 'next/font/google';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 const notoSans = Noto_Sans_JP({
   subsets: ['latin'],
   weight: ['100', '300', '400', '500', '700', '900'],
@@ -69,16 +76,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSans.className}`}>
+    <html
+      lang="ja"
+      className={`${notoSans.className}`}
+      data-scroll-behavior="smooth"
+    >
       <head>
-        <meta
-          name="robots"
-          content={isRealProduction ? 'index, follow' : 'noindex, nofollow'}
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        />
         <meta
           name="format-detection"
           content="telephone=no, address=no, email=no"

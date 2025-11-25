@@ -88,7 +88,7 @@ const Header = () => {
             講座のご案内
           </Link>
           <Link
-            href="#ContainerFacilityDetails"
+            href="#BlockInformation"
             className={styles.itemLink}
             onClick={closeMenu}
           >
@@ -109,6 +109,20 @@ const Header = () => {
           >
             お問い合わせ
           </ExternalLink>
+          <div className={styles.mobileMenu}>
+            <ExternalLink
+              href="https://shirakawapark36221.wixsite.com/my-site-5"
+              aria-label="主催講座のお申し込みはこちら"
+            >
+              主催講座のお申し込みはこちら
+            </ExternalLink>
+            <ExternalLink
+              href="https://forms.zohopublic.com/td0625g/form/Untitled63/formperma/Z9YxJucNpmbogL5m63OnOkGC1LO0izVQ1_8D9pZgZgQ"
+              aria-label="カルチャー講座のお申し込みはこちら"
+            >
+              カルチャー講座のお申し込みはこちら
+            </ExternalLink>
+          </div>
         </nav>
       </article>
       <button

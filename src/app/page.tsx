@@ -53,6 +53,10 @@ export default function Home() {
             （白川）カルチャー講座　夏期講座　受講生募集中！
           </ExternalLink>
           <BlockNewsList />
+          <article className={styles.blockInformation} id="BlockInformation">
+            <h2 className={styles.itemH2}>講座のご案内</h2>
+            <BlockCourseGuide />
+          </article>
         </article>
       </section>
       <section
@@ -92,10 +96,10 @@ export default function Home() {
         className={styles.containerCourseGuide}
         id="ContainerCourseGuide"
       >
-        <article>
+        {/* <article>
           <h2 className={styles.itemH2}>講座のご案内</h2>
           <BlockCourseGuide />
-        </article>
+        </article> */}
       </section>
       <section className={styles.containerAccess} id="ContainerAccess">
         <article>
