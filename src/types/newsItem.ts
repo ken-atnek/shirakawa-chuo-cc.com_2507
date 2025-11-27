@@ -5,6 +5,7 @@
  * Last updated: 2025-07-16
  * ======================================= */
 export type NewsItem = {
+  id: string;
   title?: string;
   body?: string;
   pdfTitle?: string;
