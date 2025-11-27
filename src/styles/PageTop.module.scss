@@ -107,6 +107,12 @@
                         font-size: FZ(16);
                         letter-spacing: 0.04em;
                     }
+                    .body {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3; // 必要行数に調整
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
                     .itemPdf {
                         color: $dark-blue;
                     }
@@ -310,6 +316,15 @@
             font-weight: 500;
             @include sp {
                 font-size: 4.2vw;
+            }
+        }
+        p {
+            font-size: inherit;
+            margin-top: 1em;
+            .itemPdf {
+                font-size: FZ(16);
+                letter-spacing: 0.04em;
+                color: $dark-blue;
             }
         }
     }
