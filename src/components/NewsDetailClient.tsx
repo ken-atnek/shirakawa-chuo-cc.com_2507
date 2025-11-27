@@ -8,7 +8,6 @@
 import { useEffect, useState } from 'react';
 import styles from '@/styles/PageTop.module.scss';
 import { NewsItem } from '@/types/newsItem';
-import { stripHtmlExceptBr } from '@/lib/stripHtml';
 import ExternalLink from '@/components/common/ExternalLink';
 import { fetchNewsById } from '@/lib/fetchNewsApi';
 

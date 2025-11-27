@@ -28,20 +28,16 @@ export default function NewsDetailPage({ searchParams }: Props) {
   if (!id) {
     return (
       <section className={styles.containerNewsDetails}>
-        <article>
-          <h2 className={styles.itemH2}>お知らせ</h2>
-          <p>ニュースIDが指定されていません。</p>
-        </article>
+        <h2 className={styles.itemH2}>お知らせ</h2>
+        <p>ニュースIDが指定されていません。</p>
       </section>
     );
   }
 
   return (
     <section className={styles.containerNewsDetails}>
-      <article>
-        <h2 className={styles.itemH2}>お知らせ</h2>
-        <NewsDetailClient id={id} />
-      </article>
+      <h2 className={styles.itemH2}>お知らせ</h2>
+      <NewsDetailClient id={id} />
     </section>
   );
 }

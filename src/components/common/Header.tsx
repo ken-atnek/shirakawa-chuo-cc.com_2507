@@ -67,35 +67,35 @@ const Header = () => {
           }`}
         >
           <Link
-            href="#ContainerNews"
+            href="/#ContainerNews"
             className={styles.itemLink}
             onClick={closeMenu}
           >
             お知らせ
           </Link>
           <Link
-            href="#ContainerFacilityGuide"
+            href="/#ContainerFacilityGuide"
             className={styles.itemLink}
             onClick={closeMenu}
           >
             施設のご案内
           </Link>
           <Link
-            href="#ContainerCourseGuide"
+            href="/#ContainerCourseGuide"
             className={styles.itemLink}
             onClick={closeMenu}
           >
             講座のご案内
           </Link>
           <Link
-            href="#BlockInformation"
+            href="/#BlockInformation"
             className={styles.itemLink}
             onClick={closeMenu}
           >
             利用申込・利用料金
           </Link>
           <Link
-            href="#ContainerAccess"
+            href="/#ContainerAccess"
             className={styles.itemLink}
             onClick={closeMenu}
           >
