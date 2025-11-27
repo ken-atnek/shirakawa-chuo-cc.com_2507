@@ -9,6 +9,7 @@ import styles from '@/styles/PageTop.module.scss';
 import { NewsItem } from '@/types/newsItem';
 import ExternalLink from '@/components/common/ExternalLink';
 import { stripHtmlExceptBr } from '@/lib/stripHtml';
+import Link from 'next/link';
 type Props = {
   items: NewsItem[];
 };
@@ -22,7 +23,27 @@ export default function BlockNewsList({ items }: Props) {
           {(item.title || item.body || item.pdfLink) && (
             <div className={styles.wrapDetails}>
               {item.title && <h3 className={styles.title}>{item.title}</h3>}
-              {item.body && <p className={styles.body} dangerouslySetInnerHTML={{ __html: stripHtmlExceptBr(item.body).replace(/\n/g, '<br />') }} />}
+              {item.body && (
+                <p
+                  className={styles.body}
+                  dangerouslySetInnerHTML={{
+                    __html: stripHtmlExceptBr(item.body).replace(
+                      /\n/g,
+                      '<br />'
+                    ),
+                  }}
+                />
+              )}
+              {item.body && (
+                <p className={styles.linkDetail}>
+                  <Link
+                    href={`/news/detail/?id=${item.id}`}
+                    className={styles.itemLink}
+                  >
+                    詳細を見る
+                  </Link>
+                </p>
+              )}
               {item.pdfLink && (
                 <ExternalLink
                   aria-label={item.pdfTitle ?? 'PDFを開く'}

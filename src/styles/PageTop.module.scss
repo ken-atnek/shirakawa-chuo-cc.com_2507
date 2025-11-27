@@ -110,6 +110,16 @@
                     .itemPdf {
                         color: $dark-blue;
                     }
+                    .itemLink {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        background-color: $dark-blue;
+                        padding: 0.5em 0.8em;
+                        border-radius: 4px;
+                        color: #fff;
+                        font-size: 1.4rem;
+                    }
                 }
             }
         }
@@ -210,7 +220,25 @@
         }
     }
 }
-
+/* =================================
+ * お知らせ(詳細)
+ * ------------------------------ */
+.containerNewsDetails {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5em 2em;
+    @include sp {
+        padding: 6vw 4vw;
+    }
+    article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: $articleMaxWidth;
+    }
+}
 /* =================================
  * 施設のご案内
  * ------------------------------ */

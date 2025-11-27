@@ -39,3 +39,40 @@ export async function fetchNews(
     return { news: [], total: 0 };
   }
 }
+
+// 記事詳細用
+export async function fetchNewsById(
+  id: string,
+  apiUrl = `https://shirakawa-chuo-cc.com/api/news/?id=${id}`
+): Promise<NewsItem | null> {
+  try {
+    const res = await fetch(apiUrl);
+
+    if (!res.ok) {
+      console.error(`ニュース詳細APIエラー (${res.status})`);
+      return null;
+    }
+
+    const rawData: ApiNewsItem[] = await res.json();
+
+    if (!rawData || rawData.length === 0) {
+      return null;
+    }
+
+    const item = rawData[0];
+
+    const news: NewsItem = {
+      id: String(item.k_id),
+      title: item.k_title,
+      body: item.k_body || '',
+      pdfTitle: item.k_pdf_title || '',
+      pdfLink: item.k_pdf || '',
+      date: item.k_date || '',
+    };
+
+    return news;
+  } catch (err) {
+    console.error('fetchNewsById取得失敗:', err);
+    return null;
+  }
+}

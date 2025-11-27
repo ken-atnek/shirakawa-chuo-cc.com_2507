@@ -19,7 +19,7 @@ import BlockStore from '@/components/BlockStore';
 // import { newsData } from '@/data/newsData';
 // import BlockNewsList from '@/components/BlockNewsList';
 
-import BlockNewsList from '@/components/BlockNewsClient';
+import BlockNewsClient from '@/components/BlockNewsClient';
 
 export const generateMetadata = (): Metadata => {
   return {
@@ -52,7 +52,7 @@ export default function Home() {
           >
             （白川）カルチャー講座　夏期講座　受講生募集中！
           </ExternalLink>
-          <BlockNewsList />
+          <BlockNewsClient />
           <article className={styles.blockInformation} id="BlockInformation">
             <h2 className={styles.itemH2}>講座のご案内</h2>
             <BlockCourseGuide />

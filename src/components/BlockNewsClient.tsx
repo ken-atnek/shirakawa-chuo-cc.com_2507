@@ -2,7 +2,7 @@
 /* =======================================
  * ニュースデータ取得コンポーネント
  * 動的にAPIからデータを取得して NewsList に渡す
- * URL: src/components/news/NewsClient.tsx
+ * URL: src/components/BlockNewsClient.tsx
  * Created: 2025-06-28
  * ======================================= */
 import { useEffect, useState } from 'react';
