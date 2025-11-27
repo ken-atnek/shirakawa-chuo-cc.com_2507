@@ -220,6 +220,7 @@
         }
     }
 }
+
 /* =================================
  * お知らせ(詳細)
  * ------------------------------ */
@@ -228,17 +229,92 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5em 2em;
+    padding: 6em 2em;
     @include sp {
         padding: 6vw 4vw;
     }
     article {
         display: flex;
         flex-direction: column;
-        align-items: center;
         max-width: $articleMaxWidth;
+        align-items: center;
+        margin-top: 2em;
+        font-size: inherit;
+        .date {
+            align-self: flex-end;
+            font-size: 1.4rem;
+            margin-bottom: 0.5em;
+        }
+        .title {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin-bottom: 1em;
+            @include sp {
+                font-size: 4.6vw;
+            }
+        }
+        div {
+            font-size: 1.6rem;
+            line-height: 1.6em;
+            letter-spacing: 0.08em;
+            @include sp {
+                font-size: 3.4vw;
+            }
+            :global(.attachment-gallery) {
+                display: grid;
+                gap: 1rem;
+                img {
+                    width: 100%;
+                }
+            }
+            &:has(> figure:nth-of-type(even):last-of-type) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            &:has(> figure:nth-of-type(odd):last-of-type) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            strong {
+                font-weight: 700;
+            }
+            em {
+                font-style: italic;
+            }
+            del {
+                font-size: inherit;
+            }
+            a {
+                font-size: inherit;
+                text-decoration: underline solid 1px;
+            }
+            blockquote {
+                font-size: inherit;
+                line-height: 1.6em;
+                letter-spacing: 0.08em;
+                font-style: italic;
+                padding: 1em 30px 1em 3em;
+                border-left: 8px solid #c2c2c2;
+                position: relative;
+                background: #f3f3f3;
+                &::before {
+                    content: "\201C";
+                    color: #78c0a8;
+                    font-size: 3em;
+                    position: absolute;
+                    left: 10px;
+                    top: 0.5em;
+                }
+            }
+        }
+        h4 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            @include sp {
+                font-size: 4.2vw;
+            }
+        }
     }
 }
+
 /* =================================
  * 施設のご案内
  * ------------------------------ */
