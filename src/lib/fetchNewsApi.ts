@@ -53,13 +53,19 @@ export async function fetchNewsById(
       return null;
     }
 
-    const rawData: ApiNewsItem[] = await res.json();
+    const rawData: ApiNewsItem[] | ApiNewsItem = await res.json();
 
-    if (!rawData || rawData.length === 0) {
-      return null;
+    let item: ApiNewsItem | null = null;
+    if (Array.isArray(rawData)) {
+      item = rawData[0] ?? null;
+    } else if (rawData && typeof rawData === 'object') {
+      item = rawData;
     }
 
-    const item = rawData[0];
+    if (!item) {
+      console.warn('ニュース詳細API: データが空または不正です', rawData);
+      return null;
+    }
 
     const news: NewsItem = {
       id: String(item.k_id),

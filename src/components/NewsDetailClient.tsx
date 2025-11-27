@@ -44,9 +44,7 @@ export default function NewsDetailClient({ id }: Props) {
       {item.body && (
         <div
           className={styles.body}
-          dangerouslySetInnerHTML={{
-            __html: stripHtmlExceptBr(item.body).replace(/\n/g, '<br />'),
-          }}
+          dangerouslySetInnerHTML={{ __html: item.body }}
         />
       )}
 
