@@ -6,22 +6,28 @@
  * ======================================= */
 
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import styles from '@/styles/PageTop.module.scss';
 import { NewsItem } from '@/types/newsItem';
 import ExternalLink from '@/components/common/ExternalLink';
 import { fetchNewsById } from '@/lib/fetchNewsApi';
 
-type Props = {
-  id: string;
-};
+export default function NewsDetailClient() {
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id') ?? undefined;
 
-export default function NewsDetailClient({ id }: Props) {
   const [item, setItem] = useState<NewsItem | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!id) return;
+
     fetchNewsById(id)
       .then((news) => {
+        if (!news) {
+          setError('該当するニュースが見つかりませんでした。');
+          return;
+        }
         setItem(news);
       })
       .catch((err) => {
@@ -31,6 +37,10 @@ export default function NewsDetailClient({ id }: Props) {
         );
       });
   }, [id]);
+
+  if (!id) {
+    return <p>ニュースIDが指定されていません。</p>;
+  }
 
   if (error) return <p>{error}</p>;
   if (!item) return <p>読み込み中...</p>;

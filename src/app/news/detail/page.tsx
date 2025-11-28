@@ -4,14 +4,9 @@
  * Created: 2025-11-27
  * ======================================= */
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import styles from '@/styles/PageTop.module.scss';
 import NewsDetailClient from '@/components/NewsDetailClient';
-
-type Props = {
-  searchParams: {
-    id?: string;
-  };
-};
 
 // ニュース詳細ページ用メタデータ
 export const generateMetadata = (): Metadata => {
@@ -22,22 +17,14 @@ export const generateMetadata = (): Metadata => {
 };
 
 // /news/detail/?id=xxx
-export default function NewsDetailPage({ searchParams }: Props) {
-  const id = searchParams.id;
-
-  if (!id) {
-    return (
-      <section className={styles.containerNewsDetails}>
-        <h2 className={styles.itemH2}>お知らせ</h2>
-        <p>ニュースIDが指定されていません。</p>
-      </section>
-    );
-  }
-
+export default function NewsDetailPage() {
   return (
     <section className={styles.containerNewsDetails}>
       <h2 className={styles.itemH2}>お知らせ</h2>
-      <NewsDetailClient id={id} />
+      {/* id はクライアント側で取得 */}
+      <Suspense fallback={<p>読み込み中...</p>}>
+        <NewsDetailClient />
+      </Suspense>
     </section>
   );
 }
