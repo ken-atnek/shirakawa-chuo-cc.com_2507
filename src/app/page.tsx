@@ -50,7 +50,7 @@ export default function Home() {
             aria-label="（白川）カルチャー講座　春期講座　受講生募集中！"
             className={styles.itemHeadPdf}
           >
-            （白川）カルチャー講座　夏期講座　受講生募集中！
+            （白川）カルチャー講座　冬期講座　受講生募集中！
           </ExternalLink>
           <BlockNewsClient />
           <article className={styles.blockInformation} id="BlockInformation">
