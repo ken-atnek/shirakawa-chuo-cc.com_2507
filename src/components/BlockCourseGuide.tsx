@@ -33,7 +33,7 @@ const BlockCourseGuide = () => {
         <ul className={styles.listImage}>
           <li>
             <ExternalLink
-              href="/data/pdf/R7syogaigakusyu_lesson.pdf"
+              href="/data/pdf/251215.pdf"
               aria-label="生涯学習自主講座"
             >
               <Image
