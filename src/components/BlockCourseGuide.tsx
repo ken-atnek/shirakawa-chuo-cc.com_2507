@@ -27,13 +27,13 @@ const BlockCourseGuide = () => {
       <div className={styles.wrapImage}>
         <div className={styles.itemH3}>
           <h3>
-            <>秋期募集</>
+            <>冬期募集</>
           </h3>
         </div>
         <ul className={styles.listImage}>
           <li>
             <ExternalLink
-              href="/data/pdf/R7syogaigakusyu_lesson.pdf"
+              href="/data/pdf/251215.pdf"
               aria-label="生涯学習自主講座"
             >
               <Image
@@ -59,7 +59,7 @@ const BlockCourseGuide = () => {
           </li>
           <li>
             <ExternalLink
-              href="/data/pdf/shirakawacul-2025au.pdf"
+              href="/data/pdf/251212.pdf"
               aria-label="カルチャー講座"
             >
               <Image
