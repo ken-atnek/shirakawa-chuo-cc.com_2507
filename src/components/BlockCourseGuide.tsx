@@ -79,12 +79,12 @@ const BlockCourseGuide = () => {
         >
           主催講座のお申し込みはこちら
         </ExternalLink>
-        <ExternalLink
+        {/* <ExternalLink
           href="https://forms.zohopublic.com/td0625g/form/Untitled63/formperma/Z9YxJucNpmbogL5m63OnOkGC1LO0izVQ1_8D9pZgZgQ"
           aria-label="カルチャー講座のお申し込みはこちら"
         >
           カルチャー講座のお申し込みはこちら
-        </ExternalLink>
+        </ExternalLink> */}
       </nav>
     </>
   );
