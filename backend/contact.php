@@ -116,7 +116,7 @@ foreach ([$name, $email] as $v) {
 // ------------------------------
 // メール設定
 // ------------------------------
-$to      = 'ken.atnek@gmail.com';
+$to      = 'debug01@a-fact.co.jp';
 $to_name = '熊本市中央公民館';
 
 $from_name  = '熊本市中央公民館 講座申し込み';
