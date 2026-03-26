@@ -7,6 +7,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import styles from '@/styles/PageEntry.module.scss';
 
 type FormState = {
@@ -261,20 +262,23 @@ export default function EntryPage() {
   // 送信完了
   if (step === 'done') {
     return (
-      <section className={styles.containerSuccess}>
-        <div className={styles.thanks}>
-          <h2 className={styles.itemH2}>送信完了</h2>
-          <p>お申し込みを受け付けました。後日担当者よりご連絡いたします。</p>
-          <button
-            className={styles.btnBack}
-            onClick={() => {
-              setForm(initialForm);
-              setStep('input');
-            }}
-          >
-            フォームに戻る
-          </button>
-        </div>
+      <section className={styles.containerForm}>
+        <article>
+          <h2 className={styles.itemH2}>
+            中央公民館<span>講座申し込みフォーム</span>
+          </h2>
+          <div className={styles.thanks}>
+            <h3>送信完了</h3>
+            <p>
+              講座申し込みありがとうございます。
+              <br />
+              ※本フォームは申し込みで、予約確定ではありませんのでご注意ください
+            </p>
+            <Link href="/" className={styles.btnBack}>
+              <span>TOPページへ戻る</span>
+            </Link>
+          </div>
+        </article>
       </section>
     );
   }
@@ -283,37 +287,41 @@ export default function EntryPage() {
   if (step === 'confirm') {
     return (
       <section className={styles.containerForm}>
-        <h2 className={styles.itemH2}>入力内容の確認</h2>
-        <p className={styles.lead}>
-          以下の内容でよろしければ「送信する」を押してください。
-        </p>
+        <article>
+          <h2 className={styles.itemH2}>
+            中央公民館<span>講座申し込みフォーム</span>
+          </h2>
+          <p className={styles.lead}>
+            以下の内容でよろしければ「送信する」を押してください。
+          </p>
 
-        <dl className={styles.confirmList}>
-          {(Object.keys(form) as (keyof FormState)[]).map(
-            (key) =>
-              form[key] !== '' && (
-                <div className={styles.confirmRow} key={key}>
-                  <dt>{LABELS[key]}</dt>
-                  <dd>{getDisplayValue(key, form[key])}</dd>
-                </div>
-              )
-          )}
-        </dl>
+          <dl className={styles.confirmList}>
+            {(Object.keys(form) as (keyof FormState)[]).map(
+              (key) =>
+                form[key] !== '' && (
+                  <div className={styles.confirmRow} key={key}>
+                    <dt>{LABELS[key]}</dt>
+                    <dd>{getDisplayValue(key, form[key])}</dd>
+                  </div>
+                )
+            )}
+          </dl>
 
-        {errorMsg && <p className={styles.errorMsg}>{errorMsg}</p>}
+          {errorMsg && <p className={styles.errorMsg}>{errorMsg}</p>}
 
-        <div className={styles.btnWrap}>
-          <button className={styles.btnBack} onClick={() => setStep('input')}>
-            <span>修正</span>
-          </button>
-          <button
-            className={styles.btnSubmit}
-            onClick={handleSubmit}
-            disabled={sending}
-          >
-            <span>{sending ? '送信中...' : '送信する'}</span>
-          </button>
-        </div>
+          <div className={styles.btnWrap}>
+            <button className={styles.btnBack} onClick={() => setStep('input')}>
+              <span>修正</span>
+            </button>
+            <button
+              className={styles.btnSubmit}
+              onClick={handleSubmit}
+              disabled={sending}
+            >
+              <span>{sending ? '送信中...' : '送信する'}</span>
+            </button>
+          </div>
+        </article>
       </section>
     );
   }
@@ -330,7 +338,9 @@ export default function EntryPage() {
           <br />
           下記項目をご入力後、送信をお願いします。
           <br />
-          ※本フォームは申し込みで、予約確定ではありませんのでご注意ください
+          ※本フォームは申し込みで、
+          <br className="sp" />
+          予約確定ではありませんのでご注意ください
         </p>
         <form onSubmit={handleConfirm} noValidate autoComplete="on">
           <dl>
