@@ -18,22 +18,27 @@
     padding-bottom: 5em;
 
     @include sp {
-        padding: 2.5rem 1.2rem 4rem;
+        padding: 6vw 4vw 6vw;
     }
     --bg-orange: #fff4e7;
     --base-orange: #e66b00;
     article {
         max-width: 98rem;
         padding-top: 2em;
+        @include sp {
+            padding-top: 10vw;
+        }
     }
     .itemH2 {
         font-size: FZ(30);
         letter-spacing: 0.08em;
+        align-self: flex-start;
+        @include sp {
+            font-size: FZ(20);
+            align-self: center;
+        }
         span {
             color: $base-orange;
-        }
-        @include sp {
-            font-size: FZ(26);
         }
     }
     .lead {
@@ -41,12 +46,21 @@
         font-size: FZ(16);
         line-height: 1.8em;
         letter-spacing: 0.08em;
+        text-align: center;
+        @include sp {
+            font-size: FZ(14);
+            margin-top: 6vw;
+            line-height: 1.4em;
+        }
     }
     form {
         margin-top: 2.5rem;
         font-size: inherit;
         display: flex;
         flex-direction: column;
+        @include sp {
+            margin-top: 6vw;
+        }
         // 入力タグ初期化
         input,
         select,
@@ -72,6 +86,9 @@
             font-family: inherit;
             background: var(--bg-orange);
             transition: border-color 0.2s;
+            @include sp {
+                font-size: 1.6rem;
+            }
             &:focus {
                 outline: none;
                 border-color: $base-orange;
@@ -89,12 +106,18 @@
             height: 5.8rem;
             display: flex;
             align-items: center;
+            @include sp {
+                height: 11vw;
+            }
         }
         textarea {
             resize: vertical;
             min-height: 8lh;
             field-sizing: content;
             padding-block: 0.8em;
+            @include sp {
+                min-height: 12lh;
+            }
         }
         dl {
             position: relative;
@@ -130,11 +153,23 @@
                             border-radius: 5px;
                         }
                     }
+                    @include sp {
+                        grid-column: span 2;
+                        border-top: 1px solid var(--base-orange);
+                        padding-block: 2vw;
+                        padding-left: 4vw;
+                        font-size: FZ(14);
+                    }
                 }
                 dd {
                     font-size: inherit;
                     padding: 0.8em 4em 0.8em 3em;
                     border-bottom: 1px solid;
+                    @include sp {
+                        grid-column: span 2;
+                        border-bottom: unset;
+                        padding: 3vw 4vw;
+                    }
                 }
                 &:first-of-type {
                     dt {
@@ -142,6 +177,9 @@
                     }
                     dd {
                         border-top: 1px solid;
+                        @include sp {
+                            border-top: unset;
+                        }
                     }
                 }
                 &.boxName {
@@ -150,6 +188,9 @@
                         gap: 1em;
                         input {
                             max-width: 10em;
+                            @include sp {
+                                max-width: unset;
+                            }
                         }
                     }
                 }
@@ -182,6 +223,10 @@
                                 $position: "left",
                                 $list-height: 3.4rem
                             );
+                            @include sp {
+                                max-width: unset;
+                                @include select-list-box($height: 11vw);
+                            }
                         }
                     }
                 }
@@ -226,6 +271,9 @@
                     dd {
                         input {
                             max-width: 20em;
+                            @include sp {
+                                max-width: unset;
+                            }
                         }
                     }
                 }
@@ -321,11 +369,18 @@
     width: 100%;
     gap: 0 1rem;
     max-width: 90rem;
+    @include sp {
+        margin-top: 6vw;
+        gap: 0 2vw;
+    }
     button {
         font-size: inherit;
         border-radius: 1rem;
         height: 8rem;
         transition: 0.3s ease-out;
+        @include sp {
+            height: 14vw;
+        }
         span {
             position: relative;
             font-size: FZ(18);
@@ -337,6 +392,9 @@
             flex: 1;
             max-width: 60rem;
             padding-left: 3em;
+            @include sp {
+                max-width: unset;
+            }
             span {
                 &::before {
                     content: "";
@@ -367,6 +425,9 @@
                     width: 1.2em;
                     @include svg-icon-form-edit("fdfdfd");
                 }
+                @include sp {
+                    letter-spacing: 0.3em;
+                }
             }
             @include hover {
                 background-color: #959595;
@@ -376,8 +437,10 @@
             background-color: var(--base-orange);
             flex: 1;
             padding-left: 2em;
-
             span {
+                @include sp {
+                    letter-spacing: 0.3em;
+                }
                 &::before {
                     content: "";
                     position: absolute;
@@ -398,34 +461,67 @@
 /* =================================
  * 送信完了
  * ------------------------------ */
-.containerSuccess {
+.containerForm {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     font-size: inherit;
-    .thanks {
-        font-size: inherit;
+    article {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        .itemH2 {
-            font-size: FZ(30);
-            color: #e66b00;
-        }
-        p {
-            margin-top: 1.5em;
-            font-size: FZ(16);
-            letter-spacing: 0.08em;
-        }
-        button {
-            margin-top: 3rem;
-            border: 1px solid;
-            border-radius: 1rem;
-            padding: 0.8em 2em;
-            background-color: $hover-orange;
-            color: #e66b00;
+        .thanks {
+            font-size: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+            h3 {
+                font-size: FZ(30);
+                color: #e66b00;
+            }
+            p {
+                margin-top: 1.5em;
+                font-size: FZ(16);
+                letter-spacing: 0.08em;
+                text-align: center;
+                line-height: 2em;
+            }
+            a {
+                font-size: inherit;
+                border-radius: 1rem;
+                height: 6rem;
+                transition: 0.3s ease-out;
+                background-color: var(--base-orange);
+                max-width: 60rem;
+                padding-left: 3em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 60rem;
+                margin-top: 3rem;
+                span {
+                    position: relative;
+                    font-size: FZ(18);
+                    color: #fdfdfd;
+                    letter-spacing: 0.24em;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        right: calc(100% + 1em);
+                        top: 50%;
+                        translate: 0 -50%;
+                        width: 1.4em;
+                        @include svg-icon-form-return("fdfdfd");
+                    }
+                }
+                @include hover {
+                    background-color: $base-orange;
+                }
+            }
         }
     }
 }

@@ -45,3 +45,22 @@ footer {
     font-size: inherit;
     z-index: 1;
 }
+br {
+    &.pc {
+        @include sp {
+            display: none;
+        }
+    }
+    &.sp {
+        display: none;
+        @include sp {
+            display: inline;
+        }
+    }
+}
+@include pc {
+    a[href^="tel:"] {
+        pointer-events: none;
+        cursor: default;
+    }
+}
