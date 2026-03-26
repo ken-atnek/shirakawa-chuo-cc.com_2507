@@ -109,6 +109,7 @@
                     }
                     .body {
                         display: -webkit-box;
+                        line-clamp: 3;
                         -webkit-line-clamp: 3; // 必要行数に調整
                         -webkit-box-orient: vertical;
                         overflow: hidden;

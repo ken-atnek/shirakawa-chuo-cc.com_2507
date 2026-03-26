@@ -10,6 +10,7 @@ import ListImage01 from '@/assets/images/BlockCourseGuide/list01.webp';
 import ListImage02 from '@/assets/images/BlockCourseGuide/list02.webp';
 import ListImage03 from '@/assets/images/BlockCourseGuide/list03.webp';
 import Image from 'next/image';
+import Link from 'next/link';
 const BlockCourseGuide = () => {
   return (
     <>
@@ -27,7 +28,7 @@ const BlockCourseGuide = () => {
       <div className={styles.wrapImage}>
         <div className={styles.itemH3}>
           <h3>
-            <>冬期募集</>
+            <>春期募集</>
           </h3>
         </div>
         <ul className={styles.listImage}>
@@ -59,7 +60,7 @@ const BlockCourseGuide = () => {
           </li>
           <li>
             <ExternalLink
-              href="/data/pdf/251212.pdf"
+              href="/data/pdf/2026年度春期A4両面チラシ.pdf"
               aria-label="カルチャー講座"
             >
               <Image
@@ -79,12 +80,7 @@ const BlockCourseGuide = () => {
         >
           主催講座のお申し込みはこちら
         </ExternalLink>
-        <ExternalLink
-          href="https://forms.zohopublic.com/td0625g/form/Untitled63/formperma/Z9YxJucNpmbogL5m63OnOkGC1LO0izVQ1_8D9pZgZgQ"
-          aria-label="カルチャー講座のお申し込みはこちら"
-        >
-          カルチャー講座のお申し込みはこちら
-        </ExternalLink>
+        <Link href="/entry/">カルチャー講座のお申し込みはこちら</Link>
       </nav>
     </>
   );

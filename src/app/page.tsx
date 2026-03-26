@@ -46,11 +46,11 @@ export default function Home() {
             講座案内や公民館だよりについてなど最新情報をお届けします
           </p>
           <ExternalLink
-            href="/data/pdf/251212.pdf"
+            href="/data/pdf/2026年度春期A4両面チラシ.pdf"
             aria-label="（白川）カルチャー講座　春期講座　受講生募集中！"
             className={styles.itemHeadPdf}
           >
-            （白川）カルチャー講座　冬期講座　受講生募集中！
+            （白川）カルチャー講座　春期講座　受講生募集中！
           </ExternalLink>
           <BlockNewsClient />
           <article className={styles.blockInformation} id="BlockInformation">
@@ -157,7 +157,7 @@ export default function Home() {
                   予約変更依頼書PDF
                 </ExternalLink>
                 <ExternalLink
-                  href="/data/pdf/obj20250813105335833062.pdf"
+                  href="/data/pdf/2026優先予約申込書.pdf"
                   aria-label="優先予約申込書（100人以上の催事）PDF"
                 >
                   優先予約申込書（100人以上の催事）PDF
