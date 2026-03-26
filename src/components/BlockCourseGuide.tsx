@@ -10,6 +10,7 @@ import ListImage01 from '@/assets/images/BlockCourseGuide/list01.webp';
 import ListImage02 from '@/assets/images/BlockCourseGuide/list02.webp';
 import ListImage03 from '@/assets/images/BlockCourseGuide/list03.webp';
 import Image from 'next/image';
+import Link from 'next/link';
 const BlockCourseGuide = () => {
   return (
     <>
@@ -79,12 +80,7 @@ const BlockCourseGuide = () => {
         >
           主催講座のお申し込みはこちら
         </ExternalLink>
-        {/* <ExternalLink
-          href="https://forms.zohopublic.com/td0625g/form/Untitled63/formperma/Z9YxJucNpmbogL5m63OnOkGC1LO0izVQ1_8D9pZgZgQ"
-          aria-label="カルチャー講座のお申し込みはこちら"
-        >
-          カルチャー講座のお申し込みはこちら
-        </ExternalLink> */}
+        <Link href="/entry/">カルチャー講座のお申し込みはこちら</Link>
       </nav>
     </>
   );

@@ -1,0 +1,431 @@
+/* =================================
+ * 熊本市中央公民館 応募フォームページ
+ * ------------------------------ */
+@use "variable" as *;
+@use "./mixin" as *;
+@use "./svg" as *;
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable keyframes-name-pattern */
+/* stylelint-disable custom-property-pattern */
+// このファイル全体のルールを無効にする
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 2vw;
+    padding-top: 6em;
+    padding-bottom: 5em;
+
+    @include sp {
+        padding: 2.5rem 1.2rem 4rem;
+    }
+    --bg-orange: #fff4e7;
+    --base-orange: #e66b00;
+    article {
+        max-width: 98rem;
+        padding-top: 2em;
+    }
+    .itemH2 {
+        font-size: FZ(30);
+        letter-spacing: 0.08em;
+        span {
+            color: $base-orange;
+        }
+        @include sp {
+            font-size: FZ(26);
+        }
+    }
+    .lead {
+        margin-top: 3em;
+        font-size: FZ(16);
+        line-height: 1.8em;
+        letter-spacing: 0.08em;
+    }
+    form {
+        margin-top: 2.5rem;
+        font-size: inherit;
+        display: flex;
+        flex-direction: column;
+        // 入力タグ初期化
+        input,
+        select,
+        textarea {
+            margin: 0;
+            padding: 0;
+            background: none;
+            border: none;
+            border-radius: 0;
+            outline: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding-inline: 0.8em;
+            border-radius: 5px;
+            font-size: 1.8rem;
+            font-family: inherit;
+            background: var(--bg-orange);
+            transition: border-color 0.2s;
+            &:focus {
+                outline: none;
+                border-color: $base-orange;
+            }
+            &::placeholder {
+                color: #959595;
+                font-weight: 300;
+                letter-spacing: 0.04em;
+                font-size: 1.4rem;
+            }
+        }
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"] {
+            height: 5.8rem;
+            display: flex;
+            align-items: center;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 8lh;
+            field-sizing: content;
+            padding-block: 0.8em;
+        }
+        dl {
+            position: relative;
+            font-size: inherit;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            --max-width: 20em;
+            > div {
+                grid-column: span 2;
+                display: grid;
+                grid-template-columns: subgrid;
+                font-size: inherit;
+                dt {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background-color: var(--bg-orange);
+                    font-size: FZ(16);
+                    color: var(--base-orange);
+                    border-bottom: 1px solid var(--base-orange);
+                    padding-left: 2em;
+                    padding-right: 1em;
+                    gap: 0 1em;
+                    &.required {
+                        &::after {
+                            content: "必須";
+                            color: #c00000;
+                            font-size: 0.8em;
+                            font-weight: 500;
+                            padding: 0.3em 0.8em;
+                            background-color: #fdfdfd;
+                            border: 1px solid;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+                dd {
+                    font-size: inherit;
+                    padding: 0.8em 4em 0.8em 3em;
+                    border-bottom: 1px solid;
+                }
+                &:first-of-type {
+                    dt {
+                        border-top: 1px solid var(--base-orange);
+                    }
+                    dd {
+                        border-top: 1px solid;
+                    }
+                }
+                &.boxName {
+                    dd {
+                        display: flex;
+                        gap: 1em;
+                        input {
+                            max-width: 10em;
+                        }
+                    }
+                }
+                &.boxCourseTitle,
+                &.boxGender {
+                    dd {
+                        display: flex;
+                        flex-direction: row;
+                        padding-block: 1em;
+                        gap: 1em;
+                        & > div {
+                            position: relative;
+                            font-size: 1em;
+                            @include radioCheck;
+                            margin-right: 1em;
+                            label {
+                                font-size: FZ(16);
+                                padding-left: 1.8em;
+                            }
+                        }
+                    }
+                }
+                &.boxGrade {
+                    dd {
+                        padding-block: 1em;
+                        .selectGrade {
+                            max-width: var(--max-width);
+                            @include select-list-box(
+                                $height: 5.8rem,
+                                $position: "left",
+                                $list-height: 3.4rem
+                            );
+                        }
+                    }
+                }
+                &.boxAge {
+                    dd {
+                        input {
+                            max-width: 5em;
+                            text-align: center;
+                        }
+                    }
+                }
+                &.boxAddress {
+                    dd {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.8rem 0;
+                        & > div {
+                            font-size: inherit;
+                            display: flex;
+                            gap: 0 1em;
+                            .postNumber {
+                                max-width: 10em;
+                            }
+                            button {
+                                font-size: FZ(12);
+                                background: #f6f6f6;
+                                align-self: center;
+                                border: 1px solid;
+                                padding: 0.5em 1em;
+                                border-radius: 5px;
+                                transition: 0.3s ease-out;
+                                @include hover {
+                                    background-color: $base-white;
+                                    color: var(--base-orange);
+                                }
+                            }
+                        }
+                    }
+                }
+                &.boxSchoolDistrict,
+                &.boxPhone {
+                    dd {
+                        input {
+                            max-width: 20em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.required {
+    color: #e00;
+    margin-left: 0.2em;
+}
+
+/* =================================
+ * 確認画面
+ * ------------------------------ */
+.confirmList {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: inherit;
+    width: 100%;
+    max-width: 98rem;
+    .confirmRow {
+        display: grid;
+        grid-column: span 2;
+        grid-template-columns: subgrid;
+        border-bottom: 1px solid #ddd;
+        font-size: inherit;
+        @include sp {
+            grid-template-columns: 1fr;
+        }
+        dt {
+            padding: 1rem;
+            background: var(--bg-orange);
+            color: var(--base-orange);
+            font-size: FZ(16);
+            padding-inline: 2em;
+            padding-block: 1em;
+            @include sp {
+                padding: 0.8rem 0.8rem 0.2rem;
+                background: none;
+                font-size: FZ(14);
+            }
+        }
+
+        dd {
+            padding: 1em;
+            font-size: FZ(16);
+            white-space: pre-wrap;
+            word-break: break-all;
+            @include sp {
+                padding: 0.2rem 0.8rem 0.8rem;
+            }
+        }
+    }
+}
+
+/* =================================
+ * バリデーションエラー
+ * ------------------------------ */
+.inputError {
+    border: 2px solid #e00 !important;
+}
+
+.errorGroup {
+    outline: 2px solid #e00;
+    border-radius: 4px;
+}
+
+/* =================================
+ * エラーメッセージ
+ * ------------------------------ */
+.errorMsg {
+    margin-top: 1.5rem;
+    padding: 0.8em 1em;
+    background: #fff0f0;
+    border: 1px solid #e00;
+    border-radius: 4px;
+    color: #e00;
+    font-size: FZ(14);
+}
+
+/* =================================
+ * ボタン
+ * ------------------------------ */
+.btnWrap {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    font-size: inherit;
+    width: 100%;
+    gap: 0 1rem;
+    max-width: 90rem;
+    button {
+        font-size: inherit;
+        border-radius: 1rem;
+        height: 8rem;
+        transition: 0.3s ease-out;
+        span {
+            position: relative;
+            font-size: FZ(18);
+            color: #fdfdfd;
+            letter-spacing: 0.8em;
+        }
+        &.btnCheck {
+            background-color: var(--base-orange);
+            flex: 1;
+            max-width: 60rem;
+            padding-left: 3em;
+            span {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    right: calc(100% + 0.6em);
+                    top: 50%;
+                    translate: 0 -50%;
+                    width: 1.2em;
+                    @include svg-icon-form-edit("fdfdfd");
+                }
+            }
+            @include hover {
+                background-color: $base-orange;
+            }
+        }
+        &.btnBack {
+            background-color: #221b44;
+            width: 40%;
+            max-width: 30rem;
+            padding-left: 2em;
+            span {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    right: calc(100% + 0.8em);
+                    top: 50%;
+                    translate: 0 -50%;
+                    width: 1.2em;
+                    @include svg-icon-form-edit("fdfdfd");
+                }
+            }
+            @include hover {
+                background-color: #959595;
+            }
+        }
+        &.btnSubmit {
+            background-color: var(--base-orange);
+            flex: 1;
+            padding-left: 2em;
+
+            span {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    right: calc(100% + 0.8em);
+                    top: 50%;
+                    translate: 0 -50%;
+                    width: 1.2em;
+                    @include svg-icon-form-send("fdfdfd");
+                }
+            }
+            @include hover {
+                background-color: $base-orange;
+            }
+        }
+    }
+}
+
+/* =================================
+ * 送信完了
+ * ------------------------------ */
+.containerSuccess {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: inherit;
+    .thanks {
+        font-size: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .itemH2 {
+            font-size: FZ(30);
+            color: #e66b00;
+        }
+        p {
+            margin-top: 1.5em;
+            font-size: FZ(16);
+            letter-spacing: 0.08em;
+        }
+        button {
+            margin-top: 3rem;
+            border: 1px solid;
+            border-radius: 1rem;
+            padding: 0.8em 2em;
+            background-color: $hover-orange;
+            color: #e66b00;
+        }
+    }
+}
