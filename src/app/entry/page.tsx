@@ -27,7 +27,6 @@ type FormState = {
   schoolDistrict: string;
   phone: string;
   email: string;
-  course: string;
   notes: string;
 };
 
@@ -48,11 +47,11 @@ const initialForm: FormState = {
   schoolDistrict: '',
   phone: '',
   email: '',
-  course: '',
   notes: '',
 };
 
 const CONTACT_URL = 'https://shirakawa-chuo-cc.com/backend/contact.php';
+//const CONTACT_URL = 'http://localhost:8081/shirakawa-chuo-cc.com/public_html/2507/backend/contact.php';
 
 type Step = 'input' | 'confirm' | 'done';
 
@@ -89,7 +88,7 @@ function getDisplayValue(key: keyof FormState, value: string): string {
 
 const LABELS: Record<keyof FormState, string> = {
   courseTitle: '講座タイトル',
-  courseName: '講座名',
+  courseName: '受講希望講座',
   nameSei: 'お名前（姓）',
   nameMei: 'お名前（名）',
   furiganaSei: 'ふりがな（姓）',
@@ -104,9 +103,10 @@ const LABELS: Record<keyof FormState, string> = {
   schoolDistrict: '校区',
   phone: '電話番号',
   email: 'メールアドレス',
-  course: '受講希望講座',
   notes: '備考',
 };
+
+type ServerFieldErrors = Partial<Record<keyof FormState, string>>;
 
 export default function EntryPage() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -114,6 +114,8 @@ export default function EntryPage() {
   const [sending, setSending] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [formError, setFormError] = useState('');
+  const [serverFieldErrors, setServerFieldErrors] =
+    useState<ServerFieldErrors>({});
   const [errorFields, setErrorFields] = useState<Set<keyof FormState>>(
     new Set()
   );
@@ -188,24 +190,32 @@ export default function EntryPage() {
     >
   ) => {
     const { name, value } = e.target;
+    const fieldName = name as keyof FormState;
 
     setForm((prev) => ({ ...prev, [name]: value }));
 
     if (name === 'grade') setIsGradeOpen(false);
 
-    setErrorFields((prev) => {
-      if (!prev.has(name as keyof FormState)) return prev;
-      const next = new Set(prev);
-      next.delete(name as keyof FormState);
-      return next;
-    });
+    const nextErrorFields = new Set(errorFields);
+    nextErrorFields.delete(fieldName);
+    setErrorFields(nextErrorFields);
+
+    const nextServerFieldErrors = { ...serverFieldErrors };
+    delete nextServerFieldErrors[fieldName];
+    setServerFieldErrors(nextServerFieldErrors);
+
+    if (nextErrorFields.size === 0 && Object.keys(nextServerFieldErrors).length === 0) {
+      setFormError('');
+    }
   };
 
-  const handleConfirm = (e: React.FormEvent) => {
-    e.preventDefault();
+  const runConfirmValidation = () => {
     setFormError('');
+    setErrorMsg('');
+    setServerFieldErrors({});
 
     const required: { key: keyof FormState; label: string }[] = [
+      { key: 'courseTitle', label: '講座タイトル' },
       { key: 'courseName', label: '受講希望講座' },
       { key: 'nameSei', label: 'お名前（姓）' },
       { key: 'nameMei', label: 'お名前（名）' },
@@ -233,6 +243,11 @@ export default function EntryPage() {
     setStep('confirm');
   };
 
+  const handleConfirm = (e?: React.FormEvent) => {
+    e?.preventDefault();
+    runConfirmValidation();
+  };
+
   const handleSubmit = async () => {
     setSending(true);
     setErrorMsg('');
@@ -246,9 +261,30 @@ export default function EntryPage() {
       if (json.success) {
         setStep('done');
       } else {
-        setErrorMsg(
-          json.error ?? '送信に失敗しました。もう一度お試しください。'
-        );
+        const nextServerFieldErrors: ServerFieldErrors = {};
+
+        if (json.fields && typeof json.fields === 'object') {
+          Object.entries(json.fields).forEach(([key, value]) => {
+            if (key in initialForm && typeof value === 'string') {
+              nextServerFieldErrors[key as keyof FormState] = value;
+            }
+          });
+        }
+
+        if (Object.keys(nextServerFieldErrors).length > 0) {
+          setServerFieldErrors(nextServerFieldErrors);
+          setErrorFields(
+            new Set(Object.keys(nextServerFieldErrors) as (keyof FormState)[])
+          );
+          setFormError(
+            json.error ?? '入力内容に不備があります。ご確認ください。'
+          );
+          setStep('input');
+        } else {
+          setErrorMsg(
+            json.error ?? '送信に失敗しました。もう一度お試しください。'
+          );
+        }
       }
     } catch {
       setErrorMsg(
@@ -310,10 +346,15 @@ export default function EntryPage() {
           {errorMsg && <p className={styles.errorMsg}>{errorMsg}</p>}
 
           <div className={styles.btnWrap}>
-            <button className={styles.btnBack} onClick={() => setStep('input')}>
+            <button
+              type="button"
+              className={styles.btnBack}
+              onClick={() => setStep('input')}
+            >
               <span>修正</span>
             </button>
             <button
+              type="button"
               className={styles.btnSubmit}
               onClick={handleSubmit}
               disabled={sending}
@@ -583,6 +624,7 @@ export default function EntryPage() {
                   value={form.streetAddress}
                   onChange={handleChange}
                   placeholder="番地"
+                  required
                   autoComplete="street-address"
                   className={
                     errorFields.has('streetAddress')
@@ -611,7 +653,6 @@ export default function EntryPage() {
                   value={form.schoolDistrict}
                   onChange={handleChange}
                   placeholder="※お住まいの小学校区をご記入ください。"
-                  required
                 />
               </dd>
             </div>
@@ -645,6 +686,7 @@ export default function EntryPage() {
                   value={form.email}
                   onChange={handleChange}
                   placeholder="example@mail.com"
+                  required
                   autoComplete="email"
                   className={
                     errorFields.has('email') ? styles.inputError : undefined
@@ -669,9 +711,19 @@ export default function EntryPage() {
             </div>
           </dl>
 
-          {formError && <p className={styles.errorMsg}>{formError}</p>}
+          {(formError || Object.keys(serverFieldErrors).length > 0) && (
+            <p className={styles.errorMsg}>
+              {formError || '入力内容に不備があります。'}
+              {Object.entries(serverFieldErrors).map(([key, message]) => (
+                <span key={key}>
+                  <br />
+                  {LABELS[key as keyof FormState]}：{message}
+                </span>
+              ))}
+            </p>
+          )}
           <div className={styles.btnWrap}>
-            <button type="submit" className={styles.btnCheck}>
+            <button type="button" className={styles.btnCheck} onClick={() => handleConfirm()}>
               <span>確認</span>
             </button>
           </div>
