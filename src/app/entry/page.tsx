@@ -51,7 +51,6 @@ const initialForm: FormState = {
 };
 
 const CONTACT_URL = 'https://shirakawa-chuo-cc.com/backend/contact.php';
-//const CONTACT_URL = 'http://localhost:8081/shirakawa-chuo-cc.com/public_html/2507/backend/contact.php';
 
 type Step = 'input' | 'confirm' | 'done';
 

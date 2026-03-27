@@ -189,7 +189,8 @@ function send_japanese_mail(
   string $body,
   string $from_name,
   string $from_email,
-  ?string $reply_to
+  ?string $reply_to,
+  ?string $cc_email = null
 ): array {
   $warning_message = null;
   $org_encoding = mb_internal_encoding();
@@ -202,9 +203,15 @@ function send_japanese_mail(
   mb_internal_encoding('UTF-8');
 
   $headers  = 'From: "' . mb_encode_mimeheader($from_name, 'ISO-2022-JP') . '" <' . $from_email . ">\r\n";
+
   if ($reply_to !== null && $reply_to !== '') {
     $headers .= 'Reply-To: ' . $reply_to . "\r\n";
   }
+
+  if ($cc_email !== null && $cc_email !== '') {
+    $headers .= 'Cc: ' . $cc_email . "\r\n";
+  }
+
   $headers .= "MIME-Version: 1.0\r\n";
   $headers .= "Content-Type: text/plain; charset=ISO-2022-JP\r\n";
   $headers .= "Content-Transfer-Encoding: 7bit\r\n";
@@ -464,6 +471,7 @@ SQL;
 }
 
 $admin_to = 'debug01@a-fact.co.jp';
+$admin_cc_email = 'info@a-fact.co.jp';
 $admin_to_name = '熊本市中央公民館';
 $from_name = '熊本市中央公民館';
 $from_email = 'kouza@shirakawa-chuo-cc.com';
@@ -542,7 +550,8 @@ $admin_mail_result = send_japanese_mail(
   $mail_body,
   $admin_from_name,
   $admin_from_email,
-  $email
+  $email,
+  $admin_cc_email
 );
 
 $user_mail_status = $user_mail_result['success'] ? 1 : 2;
