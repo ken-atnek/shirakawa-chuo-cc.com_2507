@@ -554,6 +554,18 @@ $admin_mail_result = send_japanese_mail(
   $admin_cc_email
 );
 
+#デバッグ送信確認用メール受信
+$debug_email = 'debug01@a-fact.co.jp';
+$debug_mail_result = send_japanese_mail(
+  $debug_email,
+  $admin_to_name,
+  $admin_subject,
+  $mail_body,
+  $admin_from_name,
+  $admin_from_email,
+  $email
+);
+
 $user_mail_status = $user_mail_result['success'] ? 1 : 2;
 $user_mail_sent_at = $user_mail_result['success'] ? date('Y-m-d H:i:s') : null;
 $user_mail_error_message = $user_mail_result['success'] ? null : $user_mail_result['error'];
