@@ -1,15 +1,16 @@
 @use "variable" as *;
 @use "svg" as *;
-/*=========================================
+
+/* =========================================
 ドロップシャドウ
------------------------------------------*/
+----------------------------------------- */
 @mixin drop-shadow {
-    box-shadow: 2px 2px 3px 0 rgba(53, 45, 32, 0.15);
+    box-shadow: 2px 2px 3px 0 rgb(53 45 32 / 15%);
 }
 
-/*================================
+/* ================================
  ラジオボタン・チェックボックス
---------------------------------*/
+-------------------------------- */
 @mixin radioCheck {
     input[type="radio"],
     input[type="checkbox"] {
@@ -59,9 +60,9 @@
     }
 }
 
-/*================================
+/* ================================
  セレクトボックス(JS併用版)
---------------------------------*/
+-------------------------------- */
 @mixin select-list-box($height: 4.4rem, $position: left, $list-height: 3rem) {
     position: relative;
     font-size: inherit;
@@ -79,7 +80,7 @@
         cursor: pointer;
         user-select: none;
         color: #e66b00;
-        font-size: 1.6re;
+        font-size: 1.6rem;
         &::after {
             content: "";
             position: absolute;
@@ -166,7 +167,6 @@
             background-color: $hover-orange;
             border-color: $hover-orange;
             color: #050505;
-
             &::after {
                 rotate: 90deg;
             }
