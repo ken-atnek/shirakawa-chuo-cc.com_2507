@@ -470,8 +470,8 @@ SQL;
   ]);
 }
 
-$admin_to = 'debug01@a-fact.co.jp';
-$admin_cc_email = 'info@a-fact.co.jp';
+$admin_to = 'shirakawapark36221@gmail.com';
+$admin_cc_email = 'gakupla@kumanichi-sv.co.jp';
 $admin_to_name = '熊本市中央公民館';
 $from_name = '熊本市中央公民館';
 $from_email = 'kouza@shirakawa-chuo-cc.com';
