@@ -81,14 +81,14 @@ const Header = () => {
             施設のご案内
           </Link>
           <Link
-            href="/#ContainerCourseGuide"
+            href="/#BlockInformation"
             className={styles.itemLink}
             onClick={closeMenu}
           >
             講座のご案内
           </Link>
           <Link
-            href="/#BlockInformation"
+            href="/#ContainerFacilityDetails"
             className={styles.itemLink}
             onClick={closeMenu}
           >

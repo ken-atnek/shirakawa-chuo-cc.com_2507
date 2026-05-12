@@ -91,7 +91,7 @@ const BlockFacilityDetails = () => {
             熊本市中央公民館施設利用料金・定員一覧（PDF）
           </ExternalLink>
         </div>
-        <div className={styles.wrapPdf}>
+        {/* <div className={styles.wrapPdf}>
           <h4>公民館だより</h4>
           <ExternalLink
             href="/data/pdf/R7.10月号公民館だより.pdf"
@@ -99,7 +99,7 @@ const BlockFacilityDetails = () => {
           >
             公民館だよりをご覧いただけます（PDF）
           </ExternalLink>
-        </div>
+        </div> */}
       </div>
     </>
   );
