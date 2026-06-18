@@ -18,6 +18,9 @@
 - `/news/detail/`
 - `src/app/layout.tsx`
 - `public/robots.txt`
+- `out/index.html`
+- `out/entry/index.html`
+- `out/news/detail/index.html`
 - `sitemap.xml` の有無と内容
 
 ## 確認してほしい内容
@@ -30,6 +33,7 @@
 - OGP / Twitter Card
 - canonical
 - robots 関連
+- layout の共通 metadata を各ページがそのまま継承していないか
 
 ### 2. インデックス制御
 
@@ -56,12 +60,14 @@
 
 - static export 前提で不自然なURLがないか
 - `?id=` ページの canonical 方針
+- canonical 未実装ページが残っていないか
 
 ### 7. 技術SEO
 
 - `robots.ts` / `sitemap.ts` の導入要否
 - `new URL()` を使うべき箇所
 - ビルド後成果物の確認ポイント
+- `out/*.html` の head に期待した metadata が出ているか
 
 ## 出力形式
 

@@ -13,6 +13,9 @@ export const generateMetadata = (): Metadata => {
   return {
     title: 'お知らせ詳細 | 熊本市中央公民館',
     description: '熊本市中央公民館からのお知らせ詳細ページです。',
+    alternates: {
+      canonical: '/news/detail/',
+    },
   };
 };
 

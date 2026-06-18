@@ -27,6 +27,8 @@
 ## 保留事項
 
 - `public/robots.txt` と App Router `robots.ts` のどちらを正にするか
+- `sitemap.xml` を `src/app/sitemap.ts` で出すか、別運用にするか
+- `/entry/` の index / noindex と個別 metadata の持たせ方
 - `news/detail/?id=` の index / canonical 方針
 
 ## 次回レビュー時チェック
@@ -34,6 +36,7 @@
 - `title` / `description`
 - canonical
 - `robots.txt` / `sitemap.xml`
+- `out/index.html` `out/entry/index.html` `out/news/detail/index.html` の head
 - `h1` と見出し階層
 - 画像 `alt`
 - 構造化データ

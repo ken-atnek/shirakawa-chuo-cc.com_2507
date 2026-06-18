@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean:next": "rm -rf .next",
     "dev": "next dev",
     "build": "next build && rm -f out/404.html && rm -rf out/404",
     "start": "next start",

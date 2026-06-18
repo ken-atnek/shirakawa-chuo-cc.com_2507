@@ -24,8 +24,15 @@
   - `robots` を本番・非本番で切り替え
 - `src/app/page.tsx`
   - トップページの `title` / `description` を設定
+- `src/app/entry/page.tsx`
+  - サーバーコンポーネントのラッパー（`'use client'` は `EntryPageClient.tsx` に分離済み）
+  - `title` / `description` / canonical を設定済み
 - `src/app/news/detail/page.tsx`
   - お知らせ詳細ページの `title` / `description` を設定
+  - `?id=` ごとの個別 metadata には未対応
+- `src/app/sitemap.ts`
+  - `export const dynamic = 'force-static';` を付けて static export 対応
+  - 本番時のみ `/` と `/entry/` を `sitemap.xml` に出力
 - `public/robots.txt`
   - 現状は `Disallow:` のみ
 - `public/ogp.jpg`
@@ -34,7 +41,8 @@
 ### 現時点の注意
 
 - `public/robots.txt` を使い続けるのか、`src/app/robots.ts` に寄せるのかを途中で混在させない
-- `sitemap.ts` は未整備なら追加検討が必要
+- `src/app/sitemap.ts` は追加済みで、修正時は `out/sitemap.xml` の出力内容まで確認する
+- canonical は `/`、`/entry/`、`/news/detail/` すべてに実装済み
 - 静的出力案件なので、修正後は `out/robots.txt` `out/sitemap.xml` まで確認対象にする
 
 ---
@@ -109,20 +117,23 @@ const canonical = new URL('/news/detail/', metadataBase).toString();
 
 ### 応募フォーム `/entry/`
 
-- 申込導線ページなので、index させるかは運用判断
-- index 対象にする場合も、薄いページにならない説明文を用意する
+- サーバーコンポーネント（`entry/page.tsx`）にて `title` / `description` / canonical を設定済み
+- index 対象のまま運用中
+- noindex に変更する場合は `entry/page.tsx` の metadata で `robots: 'noindex, nofollow'` を追加する
 
 ### お知らせ詳細 `/news/detail/`
 
 - 一覧を持たないクエリページなので canonical 方針を先に決める
-- `?id=` ページを index させるなら title の個別化も検討する
+- 現状は `?id=` ごとに個別 title / description / canonical は出し分けていない
+- static export + client 側描画のため、この構成のままでは `?id=` 単位の静的 metadata は出せない
+- `?id=` ページを index させるなら title の個別化だけでなく、実装方式ごとの制約整理が必要
 
 ---
 
 ## 今後の確認候補
 
-- `src/app/sitemap.ts` の追加要否
+- `sitemap.xml` に `/news/detail/` を載せるかは route 方針確定後に判断する
 - `public/robots.txt` の本番内容見直し
-- `metadata` に `twitter` を追加するか
+- canonical の実装場所を layout / page 単位でどう切り分けるか
 - `news/detail` の canonical / noindex 方針
 - 主要セクションの見出し階層と `alt` の再確認

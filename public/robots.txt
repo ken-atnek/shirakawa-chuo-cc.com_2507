@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://shirakawa-chuo-cc.com/sitemap.xml

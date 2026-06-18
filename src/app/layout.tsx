@@ -49,7 +49,7 @@ export const metadata: Metadata = {
       ],
     },
   }),
-  title: ' 熊本市中央公民館',
+  title: '熊本市中央公民館',
   description: isRealProduction ? '熊本市中央公民館' : undefined,
   robots: isRealProduction ? 'index, follow' : 'noindex, nofollow',
   icons: {

@@ -26,6 +26,9 @@ export const generateMetadata = (): Metadata => {
     title: '熊本市中央公民館',
     description:
       '熊本市中央公民館は図書館から会議室、ホールまで幅広くご利用いただける施設です。',
+    alternates: {
+      canonical: '/',
+    },
   };
 };
 export default function Home() {
