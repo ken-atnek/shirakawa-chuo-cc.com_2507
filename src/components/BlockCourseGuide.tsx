@@ -60,7 +60,7 @@ const BlockCourseGuide = () => {
           </li>
           <li>
             <ExternalLink
-              href="/data/pdf/260618_01.pdf"
+              href="/data/pdf/260623.pdf"
               aria-label="カルチャー講座"
             >
               <Image

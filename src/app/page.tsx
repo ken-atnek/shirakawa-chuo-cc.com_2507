@@ -49,7 +49,7 @@ export default function Home() {
             講座案内や公民館だよりについてなど最新情報をお届けします
           </p>
           <ExternalLink
-            href="/data/pdf/260618_02.pdf"
+            href="/data/pdf/260623.pdf"
             aria-label="（白川）カルチャー講座　春期講座　受講生募集中！"
             className={styles.itemHeadPdf}
           >
