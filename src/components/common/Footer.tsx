@@ -8,6 +8,7 @@ import styles from '@/styles/components/common/Footer.module.scss';
 import ExternalLink from '@/components/common/ExternalLink';
 import SnsFb from '@/assets/images/sns-fb.webp';
 import SnsLine from '@/assets/images/sns-line.webp';
+import SnsInsta from '@/assets/images/sns-insta.webp';
 import Image from 'next/image';
 
 const Footer = () => {
@@ -41,6 +42,26 @@ const Footer = () => {
             className={styles.itemSns}
           >
             <Image src={SnsLine} alt="熊本市中央公民館のLINE" />
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink
+            href="https://www.instagram.com/shirakawa.kouminkan/"
+            aria-label="熊本市中央公民館のインスタグラム"
+            className={styles.snsInsta}
+          >
+            <Image src={SnsInsta} alt="熊本市中央公民館のインスタグラム" />
+            <span>中央公民館</span>
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink
+            href="https://www.instagram.com/shirakawa_no_hotori/"
+            aria-label="しらかわのほとりのインスタグラム"
+            className={styles.snsInsta}
+          >
+            <Image src={SnsInsta} alt="しらかわのほとりのインスタグラム" />
+            <span>しらかわのほとり</span>
           </ExternalLink>
         </li>
       </ul>
